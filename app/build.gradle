@@ -21,7 +21,10 @@ android {
         }
     }
 
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -47,6 +50,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
     implementation project(path: ':audiolibrary')
     implementation project(path: ':splashmodule')
+    implementation project(path: ':medialibrary')
 
 }
 repositories {

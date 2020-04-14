@@ -3,20 +3,18 @@ package com.bus.voicebroadcast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContentResolverCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import io.reactivex.functions.Consumer;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.Toast;
@@ -28,9 +26,14 @@ import com.bus.voicebroadcast.viewmodel.SeatViewModel;
 import com.bus.voicebroadcast.viewmodel.ViewModelFactory;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.zhang.audiolibrary.AudioUtil;
+import com.zhang.medialibrary.media.MediaUtil;
+import com.zhang.medialibrary.media.SimpleCreator;
+import com.zhang.medialibrary.notification.NotificationUtil;
 import com.zhang.netlibrary.download.AndroidDownloadManager;
 import com.zhang.netlibrary.download.AndroidDownloadManagerListener;
+import com.zhang.splashmodule.SplashActivity;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG="voicebroadcast";
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void init() {
+        playMusic();
         seatViewModel = new ViewModelProvider(this,new ViewModelFactory(2)).get(SeatViewModel.class);
         seatViewModel.getCounter().observe(this, new Observer<Integer>() {
             @Override
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             //startTask();
             //download();
             //AudioUtil.getInstance(this).speak("hello,google");
-            readContacts();
+            //readContacts();
         } else {
             //未打开蓝牙
             Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -152,6 +156,21 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }*/
+        }
+    }
+
+    void showNotify(){
+        PendingIntent intent=PendingIntent.getActivity(getApplicationContext(),0,new Intent(this, SplashActivity.class),0);
+        NotificationUtil.getInstance(getApplicationContext()).showNotification(1,"title","content",R.drawable.ic_logo_shape,R.drawable.ic_logo_shape,intent);
+
+    }
+
+    void playMusic(){
+        try {
+            MediaPlayer mediaPlayer = SimpleCreator.create(this);
+            MediaUtil.getInstance().play(mediaPlayer);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
