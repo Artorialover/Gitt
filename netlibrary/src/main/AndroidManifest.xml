@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhang.netlibrary" >
     <application>
-        <service android:name="com.zhang.netlibrary.updateApk.DownloadAPKService" android:exported="true"
+        <service android:name="com.zhang.netlibrary.updateApk.core.DownloadAPKService" android:exported="true"
             android:enabled="true"/>
         <provider
             android:name="androidx.core.content.FileProvider"

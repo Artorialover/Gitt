@@ -1,4 +1,4 @@
-package com.zhang.netlibrary;
+package com.zhang.netlibrary.updateApk;
 
 import android.app.Application;
 

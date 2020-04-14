@@ -3,14 +3,13 @@ package com.bus.voicebroadcast;
 import android.app.Application;
 
 import com.zhang.audiolibrary.IAudioComponentApplication;
-import com.zhang.netlibrary.INetComponentApplication;
-import com.zhang.splashmodule.GuideActivity;
+import com.zhang.netlibrary.updateApk.INetComponentApplication;
 import com.zhang.splashmodule.SplashModule;
 
 
 public class MyApplication extends Application {
 
-    private String[] modules=new String[]{"com.zhang.netlibrary.NetApplication","com.zhang.audiolibrary.AudioApplication"};
+    private String[] modules=new String[]{"com.zhang.netlibrary.updateApk.NetApplication","com.zhang.audiolibrary.AudioApplication"};
 
     @Override
     public void onCreate() {

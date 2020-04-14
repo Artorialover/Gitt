@@ -1,12 +1,11 @@
-package com.zhang.netlibrary;
+package com.zhang.netlibrary.updateApk;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 
-import com.zhang.netlibrary.updateApk.DownloadAPKService;
-import com.zhang.netlibrary.updateApk.InstallUtils;
+import com.zhang.netlibrary.updateApk.core.DownloadAPKService;
+import com.zhang.netlibrary.updateApk.core.InstallUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresPermission;

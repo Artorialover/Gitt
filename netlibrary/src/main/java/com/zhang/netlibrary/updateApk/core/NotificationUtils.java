@@ -1,4 +1,4 @@
-package com.zhang.netlibrary.updateApk;
+package com.zhang.netlibrary.updateApk.core;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

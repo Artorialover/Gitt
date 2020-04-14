@@ -1,4 +1,4 @@
-package com.zhang.netlibrary.updateApk;
+package com.zhang.netlibrary.updateApk.core;
 
 import android.content.Context;
 import android.content.Intent;
