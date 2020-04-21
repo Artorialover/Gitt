@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<dimen name="normal">40.5500dp</dimen>
+	<dimen name="big">67.5833dp</dimen>
+</resources>
